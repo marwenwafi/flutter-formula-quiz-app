@@ -8,13 +8,11 @@ part of 'models.dart';
 
 Option _$OptionFromJson(Map<String, dynamic> json) => Option(
       value: json['value'] as String? ?? '',
-      detail: json['detail'] as String? ?? '',
       correct: json['correct'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$OptionToJson(Option instance) => <String, dynamic>{
       'value': instance.value,
-      'detail': instance.detail,
       'correct': instance.correct,
     };
 
@@ -52,8 +50,8 @@ Map<String, dynamic> _$QuizToJson(Quiz instance) => <String, dynamic>{
       'questions': instance.questions,
     };
 
-Topic _$TopicFromJson(Map<String, dynamic> json) => Topic(
-      id: json['id'] as String? ?? '',
+Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
+      id: json['id'] as int? ?? 0,
       title: json['title'] as String? ?? '',
       description: json['description'] as String? ?? '',
       img: json['img'] as String? ?? 'default.png',
@@ -63,7 +61,7 @@ Topic _$TopicFromJson(Map<String, dynamic> json) => Topic(
           const [],
     );
 
-Map<String, dynamic> _$TopicToJson(Topic instance) => <String, dynamic>{
+Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,

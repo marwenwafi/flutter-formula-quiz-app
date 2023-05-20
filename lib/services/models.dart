@@ -1,12 +1,13 @@
+import 'dart:ffi';
+
 import 'package:json_annotation/json_annotation.dart';
 part 'models.g.dart';
 
 @JsonSerializable()
 class Option {
   String value;
-  String detail;
   bool correct;
-  Option({this.value = '', this.detail = '', this.correct = false});
+  Option({this.value = '', this.correct = false});
   factory Option.fromJson(Map<String, dynamic> json) => _$OptionFromJson(json);
   Map<String, dynamic> toJson() => _$OptionToJson(this);
 }
@@ -42,22 +43,27 @@ class Quiz {
 }
 
 @JsonSerializable()
-class Topic {
-  late final String id;
+class Category {
+  late final int id;
   final String title;
   final String description;
   final String img;
   final List<Quiz> quizzes;
 
-  Topic(
-      {this.id = '',
+  Category(
+      {this.id = 0,
       this.title = '',
       this.description = '',
       this.img = 'default.png',
       this.quizzes = const []});
 
-  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
-  Map<String, dynamic> toJson() => _$TopicToJson(this);
+  factory Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$CategoryToJson(this);
+  @override
+  String toString() {
+    return 'Category(id: $id, title: $title, description: $description, img: $img, quizzes: $quizzes)';
+  }
 }
 
 @JsonSerializable()

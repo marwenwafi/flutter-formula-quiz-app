@@ -1,19 +1,28 @@
 import 'dart:async';
+import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+const bool kIsWeb = bool.fromEnvironment('dart.library.js_util');
+
 
 class AuthService {
   final SupabaseClient client = Supabase.instance.client;
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   Session? session;
   User? user;
   
   //AuthService(this.client);
 
   Future<void> signInUser(String email, String password) async {
+    
     final AuthResponse res = await client.auth.signInWithPassword(
       email: email,
       password: password,
     );
+//        prefs.setString("session_token", value) session = res.session;
+
     session = res.session;
     user = res.user;
   }
@@ -23,7 +32,8 @@ class AuthService {
   }
 
   Future<void> signInWithGoogle() async {
-    await client.auth.signInWithOAuth(Provider.github);
+    //authScreenLaunchMode: LaunchMode.externalApplication
+    await client.auth.signInWithOAuth(Provider.google,redirectTo: kIsWeb ? null : dotenv.get('SUPABASE_REDIRECT_URL'));
   }
 
   Future<void> verifyOtp({required String userEmail, required String otp}) async {
@@ -36,11 +46,12 @@ class AuthService {
     await client.auth.signOut();
   }
 
-  Stream<Object> listenToAuthStatus() {
-    StreamSubscription<AuthState> authSubscription = client.auth.onAuthStateChange.listen((data) { 
-      final Session? session = data. session;
-      final AuthChangeEvent event = data. event;
-      switch (event) { 
+  Stream<AuthState> listenToAuthStatus() {
+    final authStateChangeStream = client.auth.onAuthStateChange;
+    StreamSubscription<AuthState> authSubscription = authStateChangeStream.listen((data) { 
+      debugPrint('Event value: ${data}');
+
+      switch (data.event) { 
         case AuthChangeEvent.signedOut :
           // TODO: handle when user is signed out
           break;
@@ -64,21 +75,8 @@ class AuthService {
           break;
       }
     });
-    StreamController<Object> controller = StreamController<Object>();
 
-    authSubscription.onData((AuthState data) {
-      controller.add(data);
-    });
-
-    authSubscription.onError((error) {
-      controller.addError(error);
-    });
-
-    authSubscription.onDone(() {
-      controller.close();
-    });
-
-    return controller.stream.asyncExpand((event) => Stream<Object>.value(event));
+    return authStateChangeStream;
   }
 
   bool isLoggedIn(){

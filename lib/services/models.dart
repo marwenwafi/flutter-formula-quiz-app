@@ -28,7 +28,7 @@ class Quiz {
   String title;
   String description;
   String video;
-  String topic;
+  String category;
   List<Question> questions;
 
   Quiz(
@@ -36,7 +36,7 @@ class Quiz {
       this.video = '',
       this.description = '',
       this.id = '',
-      this.topic = '',
+      this.category = '',
       this.questions = const []});
   factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
   Map<String, dynamic> toJson() => _$QuizToJson(this);
@@ -70,9 +70,9 @@ class Category {
 class Report {
   String uid;
   int total;
-  Map topics;
+  Map categories;
 
-  Report({this.uid = '', this.topics = const {}, this.total = 0});
+  Report({this.uid = '', this.categories = const {}, this.total = 0});
   factory Report.fromJson(Map<String, dynamic> json) => _$ReportFromJson(json);
   Map<String, dynamic> toJson() => _$ReportToJson(this);
 }

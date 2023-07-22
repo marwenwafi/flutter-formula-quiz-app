@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:formula_quiz/categories/category-item.dart';
 import 'package:formula_quiz/services/services.dart';
 import 'package:formula_quiz/shared/shared.dart';
 
@@ -34,7 +35,14 @@ class CategoriesScreen extends StatelessWidget {
                 )
               ],
             ),
-            
+            body: GridView.count(
+              primary: false,
+              padding: const EdgeInsets.all(20.0),
+              crossAxisSpacing: 10.0,
+              crossAxisCount: 2,
+              children: categories.map((category) => CategoryItem(category: category)).toList(),
+            ),
+            bottomNavigationBar: const BottomNavBar(),
           );
         } else {
           return const Text('No Categories found. Check database');

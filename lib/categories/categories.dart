@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:formula_quiz/categories/category-item.dart';
+import 'package:formula_quiz/categories/category_item.dart';
 import 'package:formula_quiz/services/services.dart';
 import 'package:formula_quiz/shared/shared.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Category>>(
-      future: SupabaseService().getCategories(),
+      future: FirestoreService().getCategories(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingScreen();
@@ -24,7 +23,7 @@ class CategoriesScreen extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.deepPurple,
-              title: const Text('Categories'),
+              title: const Text('Topics'),
               actions: [
                 IconButton(
                   icon: Icon(
@@ -35,6 +34,7 @@ class CategoriesScreen extends StatelessWidget {
                 )
               ],
             ),
+            //drawer: TopicDrawer(topics: topics),
             body: GridView.count(
               primary: false,
               padding: const EdgeInsets.all(20.0),
@@ -45,7 +45,7 @@ class CategoriesScreen extends StatelessWidget {
             bottomNavigationBar: const BottomNavBar(),
           );
         } else {
-          return const Text('No Categories found. Check database');
+          return const Text('No topics found in Firestore. Check database');
         }
       },
     );

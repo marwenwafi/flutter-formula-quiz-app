@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:formula_quiz/services/models.dart';
 import 'package:formula_quiz/shared/progress_bar.dart';
-import 'package:formula_quiz/services/models.dart';
-import 'package:formula_quiz/shared/progress_bar.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;

@@ -45,3 +45,7 @@ app.*.map.json
 key
 key.pub
 *.env
+firebase_options.dart
+google-services.json
+firebase_app_id_file.json
+GoogleService-info.plist

@@ -1,3 +1,3 @@
 export 'models.dart';
 export 'auth.dart';
-export 'supabase.dart';
+export 'firestore.dart';

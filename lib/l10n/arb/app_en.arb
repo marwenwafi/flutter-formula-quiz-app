@@ -1,0 +1,128 @@
+{
+    "@@locale": "en",
+    "appTitle": "QuizApp",
+    "@appTitle": {
+        "description": "App title"
+    },
+    "authFailureMessage": "There's been an error, please log back in!",
+    "@authFailureMessage": {
+        "description": "`AuthFailure` message"
+    },
+    "signOutFailureMessage": "There's been an error while logging out, please try again!",
+    "@signOutFailureMessage": {
+        "description": "`LogOutFailure` message"
+    },
+    "anonymousSignInFailureMessage": "You can't sign in as a guest at the moment, please try again later!",
+    "@anonymousSignInFailureMessage": {
+        "description": "`AnonymousSignInFailure` message"
+    },
+    "googleSignInFailureMessage": "There's been an error while signing in with google, please try again!",
+    "@googleSignInFailureMessage": {
+        "description": "`GoogleSignInFailure` message"
+    },
+    "appleSignInFailureMessage": "There's been an error while signing in with apple, please try again!",
+    "@appleSignInFailureMessage": {
+        "description": "`AppleSignInFailure` message"
+    },
+    "appleSignInNotSupportedFailureMessage": "Apple sign in is not supported on your device!",
+    "@appleSignInNotSupportedFailureMessage": {
+        "description": "`AppleSignInNotSupportedFailure` message"
+    },
+    "unknownFailureMessage": "There's been an error, please try again!",
+    "@unknownFailureMessage": {
+        "description": "Unknown failure message"
+    },
+    "loginPreamble": "Login to Start",
+    "@loginPreamble": {
+        "description": "`LoginPage` preamble"
+    },
+    "loginTagline": "Test your app development knowledge with quick bite-sized quizzes from fireship.io",
+    "@loginTagline": {
+        "description": "`LoginPage` tagline"
+    },
+    "loginWithGoogleButtonLabel": "Login with Google",
+    "@loginPreamble": {
+        "description": "Sign in with google button label"
+    },
+    "loginWithAppleButtonLabel": "Login with Apple",
+    "@loginWithAppleButtonLabel": {
+        "description": "Sign in with apple button label"
+    },
+    "loginAsGuestButtonLabel": "Continue as Guest",
+    "@loginAsGuestButtonLabel": {
+        "description": "Sign in as guest button label"
+    },
+    "topicsLabel": "Topics",
+    "@topicsLabel": {
+        "description": "Topics  label"
+    },
+    "aboutLabel": "About",
+    "@aboutLabel": {
+        "description": "About  label"
+    },
+    "profileLabel": "Profile",
+    "@profileLabel": {
+        "description": "Profile  label"
+    },
+    "getTopicsFailureMessage": "There's been an error getting the topics 🙄",
+    "@getTopicsFailureMessage": {
+        "description": "`GetTopicsFailure` message"
+    },
+    "noTopicsMessage": "There are no topics 😏",
+    "@noTopicsMessage": {
+        "description": "No topics message"
+    },
+    "congratsMessage": "Congrats! You completed the {quizTitle} quiz",
+    "@congratsMessage": {
+        "description": "Congrats message",
+        "placeholders": {
+            "quizTitle": {
+                "type": "String"
+            }
+        }
+    },
+    "quizStartButtonLabel": "Start Quiz!",
+    "@quizStartButtonLabel": {
+        "description": "`QuizStartButton` label"
+    },
+    "markQuizCompletedButtonLabel": "Mark Complete!",
+    "@markQuizCompletedButtonLabel": {
+        "description": "`CompleteQuizButton` label"
+    },
+    "correctAnswerMessage": "Good Job!",
+    "@correctAnswerMessage": {
+        "description": "Message shown when correctly answering a quiz question"
+    },
+    "wrongAnswerMessage": "Wrong",
+    "@wrongAnswerMessage": {
+        "description": "Message shown when incorrectly answering a quiz question"
+    },
+    "correctQuizButtonLabel": "Onward!",
+    "@correctQuizButtonLabel": {
+        "description": "`QuizButton`'s label on a correct answer"
+    },
+    "wrongQuizButtonLabel": "Try Again",
+    "@wrongQuizButtonLabel": {
+        "description": "`QuizButton`'s label on an incorrect answer"
+    },
+    "noQuizDataMessage": "There's no quiz data 😏",
+    "@noQuizDataMessage": {
+        "description": "`QuizButton`'s label on an incorrect answer"
+    },
+    "getQuizFailureMessage": "There's been an error getting quiz data 🙄",
+    "@getQuizFailureMessage": {
+        "description": "`GetQuizFailure` message"
+    },
+    "guestProfileDisplayName": "Guest",
+    "@guestProfileDisplayName": {
+        "description": "Display name on guest profiles"
+    },
+    "totalCompletedQuizzesLabel": "Quizzes Completed",
+    "@totalCompletedQuizzesLabel": {
+        "description": "Total completed quizzes label"
+    },
+    "logOutButtonLabel": "Logout",
+    "@logOutButtonLabel": {
+        "description": "`LogOutButton`'s label on profile view"
+    }
+}
